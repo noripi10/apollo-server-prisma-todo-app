@@ -1,0 +1,38 @@
+{
+  "name": "apollo-server-todo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "format": "prettier --write $PWD/'src/**/*.{js,ts}'",
+    "lint": "eslint 'src/**/*.{js,ts}'",
+    "clean": "rm -rf dist",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript": "^2.4.5",
+    "@graphql-codegen/typescript-resolvers": "^2.5.2",
+    "@graphql-tools/graphql-file-loader": "^7.0.1",
+    "@graphql-tools/load": "^7.0.1",
+    "@graphql-tools/schema": "^8.0.1",
+    "@prisma/client": "^3.9.2",
+    "apollo-server": "^3.6.3",
+    "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "graphql-codegen-typescript-mock-data": "^2.1.2",
+    "prettier": "^2.3.2",
+    "prisma": "^3.9.2",
+    "ts-node": "^10.1.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  }
+}
