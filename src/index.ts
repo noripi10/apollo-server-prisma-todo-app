@@ -30,6 +30,7 @@ const resolvers: Resolvers = {
         where: {
           id: args.id ?? 0,
         },
+        include: {},
       });
       return user;
     },
