@@ -23,9 +23,9 @@ input AddUser {
 }
 
 type Query {
-  users: [User!]!
-  user(id: Int!, name: String): User
-  posts: [Post]
+  getUsers: [User!]!
+  getUser(id: Int!, name: String): User
+  getPosts: [Post]
 }
 
 type Mutation {

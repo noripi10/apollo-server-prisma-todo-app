@@ -2,8 +2,8 @@ import { prisma } from '../../libs/prisma';
 import { QueryResolvers } from '../../types/generated/graphql';
 
 export const Query: QueryResolvers = {
-  users: () => prisma.user.findMany({ orderBy: { id: 'asc' } }),
-  user: async (parent, args, context) => {
+  getUsers: () => prisma.user.findMany({ orderBy: { id: 'asc' } }),
+  getUser: async (parent, args, context) => {
     console.info(parent);
     console.info(args);
     console.info(context);
@@ -18,5 +18,5 @@ export const Query: QueryResolvers = {
     });
     return user;
   },
-  posts: () => prisma.post.findMany(),
+  getPosts: () => prisma.post.findMany(),
 };
