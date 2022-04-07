@@ -5,7 +5,7 @@ export const User: UserResolvers = {
   posts: (parent) => {
     const res = prisma.post.findMany({
       where: {
-        authorId: parent.id ?? 0,
+        authorId: parent.id ?? -1,
       },
     });
     return res;

@@ -4,9 +4,9 @@ import { QueryResolvers } from '../../types/generated/graphql';
 export const Query: QueryResolvers = {
   getUsers: () => prisma.user.findMany({ orderBy: { id: 'asc' } }),
   getUser: async (parent, args, context) => {
-    console.info(parent);
-    console.info(args);
-    console.info(context);
+    console.info({ parent });
+    console.info({ args });
+    console.info({ context });
     if (!args.id && !args.name) {
       return null;
     }
@@ -14,9 +14,18 @@ export const Query: QueryResolvers = {
       where: {
         id: args.id ?? 0,
       },
-      include: {},
+      // include: {},
     });
     return user;
   },
   getPosts: () => prisma.post.findMany(),
+  getUserPosts: async (_, args) => {
+    const posts = await prisma.post.findMany({
+      where: {
+        authorId: args.userId,
+      },
+    });
+
+    return posts;
+  },
 };

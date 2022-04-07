@@ -21,6 +21,20 @@ export const Mutaiton: MutationResolvers = {
       },
     });
 
+    await Promise.all(
+      [...Array(10)].map(async () => {
+        await prisma.post.create({
+          data: {
+            title: 'title' + Math.floor(Math.random() * 100),
+            body: 'body',
+            authorId: createUser.id,
+            createdAt: new Date(),
+            updateAt: new Date(),
+          },
+        });
+      })
+    );
+
     return createUser;
   },
 };

@@ -26,6 +26,7 @@ type Query {
   getUsers: [User!]!
   getUser(id: Int!, name: String): User
   getPosts: [Post]
+  getUserPosts(userId: Int!): [Post]
 }
 
 type Mutation {
